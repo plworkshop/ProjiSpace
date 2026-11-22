@@ -1,0 +1,73 @@
+@reference "./styles.css";
+
+.project-form-modal:not(.project-form-modal--expanded)
+  .form-description
+  > :is(.rich-editor, .editor-loading) {
+  flex: none;
+  height: 202px;
+  min-height: 202px;
+  max-height: 202px;
+}
+.project-form-modal:not(.project-form-modal--expanded) .rich-editor-content {
+  min-height: 0;
+  max-height: none;
+}
+.modal.project-form-modal:not(.project-form-modal--expanded) {
+  width: min(580px, calc(100% - 32px));
+}
+.project-form-modal .form-cover-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 38px;
+  color: inherit;
+  font-size: 12px;
+  text-align: start;
+}
+.form-cover-value {
+  margin-inline-start: auto;
+  opacity: 0.65;
+  font-size: 11px;
+}
+.form-cover-toggle svg {
+  @apply motion-safe:transition-transform motion-safe:duration-[240ms] motion-safe:ease-[cubic-bezier(0.2,0,0,1)];
+}
+.form-cover[data-open="true"] .form-cover-toggle svg {
+  transform: rotate(180deg);
+}
+.form-cover-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  @apply motion-safe:transition-[grid-template-rows,opacity] motion-safe:duration-[240ms] motion-safe:ease-[cubic-bezier(0.2,0,0,1)];
+}
+.form-cover[data-open="true"] .form-cover-reveal {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.form-cover-content {
+  min-height: 0;
+  overflow: hidden;
+}
+.form-cover-content .art-options {
+  padding-top: 8px;
+}
+.modal.project-form-modal {
+  opacity: 1;
+  translate: 0 0;
+  @apply motion-safe:transition-[opacity,translate] motion-safe:duration-[280ms] motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)];
+}
+.project-form-modal::backdrop {
+  @apply motion-safe:transition-[background-color,backdrop-filter] motion-safe:duration-[280ms] motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)];
+}
+@starting-style {
+  .modal.project-form-modal {
+    opacity: 0;
+    translate: 0 8px;
+  }
+  .project-form-modal::backdrop {
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+  }
+}

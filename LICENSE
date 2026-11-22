@@ -1,0 +1,50 @@
+ProjiSpace 1.0.0 — Source-Available License
+
+Copyright (c) 2026 pl.workshop. All rights reserved,
+except for the permissions expressly granted below.
+
+1. Scope
+
+These terms cover the original ProjiSpace 1.0.0 application code, documentation
+and assets (the Software). Third-party components are excluded and remain
+subject to their own licenses and notices.
+
+2. Free use and private changes
+
+You may download, install and run official ProjiSpace 1.0.0 builds free of charge
+for personal use or internal business use. You may make installation and backup
+copies. You may inspect the source, keep a local copy, and privately build or
+modify it for your own personal or internal business use.
+
+Subject to compliance with these terms, these permissions are perpetual for
+version 1.0.0. They do not require a later purchase or subscription.
+
+3. Rights not granted
+
+Without prior written permission from the copyright holders, you may not
+redistribute the source or modified builds, incorporate the Software or its
+parts into another product, sublicense it, or sell it. No trademark rights are
+granted. Preserve copyright notices and this license in permitted copies.
+
+These restrictions do not limit rights required by applicable law, rights
+provided by separate third-party licenses, or the rights to view, use and fork
+public repository content through GitHub as permitted by GitHub's Terms of
+Service: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service
+
+4. Future versions
+
+Later versions or additional features may be offered under different terms,
+including paid terms. This does not impose a retroactive fee on the permissions
+granted here for version 1.0.0.
+
+5. No warranty
+
+To the extent permitted by applicable law, the Software is provided "as is",
+without express or implied warranties, including merchantability, fitness for
+a particular purpose or noninfringement. The copyright holders are not liable
+for claims, damages or other liability arising from use of the Software.
+
+6. Language
+
+LICENSE is the controlling English text. LICENSE.ru.md is a Russian translation
+provided for convenience. In case of a difference, the English text prevails.

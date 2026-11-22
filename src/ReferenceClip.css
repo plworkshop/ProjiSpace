@@ -1,0 +1,9 @@
+.reference-item.link.has-clip { display:grid; grid-template-columns:minmax(0,1fr) 25px; align-items:center; }
+.reference-clip { grid-column:1 / -1; min-width:0; padding-top:8px; border-top:1px solid var(--line); margin-top:8px; }
+.reference-clip summary { display:flex; align-items:center; gap:7px; padding:2px 0; color:var(--muted); cursor:pointer; list-style:none; }
+.reference-clip summary::-webkit-details-marker { display:none; }
+.reference-clip summary:hover { color:var(--lime); }
+.reference-clip summary > span { min-width:0; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:11px; }
+.reference-clip[open] summary > svg:last-child { transform:rotate(180deg); }
+.reference-clip time { display:block; color:var(--muted); font-size:10px; margin:9px 0 6px; }
+.reference-clip-text { max-height:260px; overflow:auto; scrollbar-width:thin; white-space:pre-wrap; overflow-wrap:anywhere; font-size:12px; line-height:1.65; padding-right:4px; user-select:text; }

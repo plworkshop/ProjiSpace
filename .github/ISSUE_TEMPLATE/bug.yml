@@ -1,0 +1,42 @@
+name: Bug report / Ошибка
+description: Report reproducible behavior / Сообщить о воспроизводимой ошибке
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use fictional project data. Do not attach your database, recordings, secrets or personal paths.
+        Используйте вымышленные данные. Не прикладывайте базу, записи голоса, ключи или личные пути.
+        Security vulnerabilities need a private report; see SECURITY.md / Для уязвимостей нужен закрытый канал, см. SECURITY.ru.md.
+  - type: input
+    id: version
+    attributes:
+      label: App version / Версия приложения
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Operating system and startup mode / ОС и режим запуска
+      placeholder: "Windows 11 x64, desktop"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce / Шаги воспроизведения
+      description: List the smallest repeatable sequence / Опишите минимальную последовательность.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual result / Ожидаемый и фактический результат
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Optional screenshot or log excerpt / Необязательный снимок или фрагмент журнала
+      description: Remove private data first / Сначала удалите личные данные.

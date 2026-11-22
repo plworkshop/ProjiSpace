@@ -1,0 +1,547 @@
+@reference "./styles.css";
+
+.picker-view:has(.picker-random-button) {
+  overflow: clip;
+}
+
+.picker-random-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 184px;
+  min-height: 36px;
+  margin-top: 0;
+  padding: 7px 12px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: #a9b6c8;
+  background: transparent;
+  font-size: 12px;
+  @apply motion-safe:transition-[color,background-color,opacity] motion-safe:duration-200 motion-safe:ease-[cubic-bezier(0.2,0,0,1)];
+}
+.picker-view:has(.picker-random-button) .picker-bottom {
+  display: grid;
+  grid-template-rows: 44px 36px 36px;
+  row-gap: 8px;
+  justify-items: center;
+  align-items: center;
+  min-height: 132px;
+  padding: 0;
+}
+.picker-view:has(.picker-random-button) .picker-bottom > .decision-controls,
+.picker-view:has(.picker-random-button) .picker-bottom > .open-winner {
+  grid-row: 1;
+}
+.picker-view:has(.picker-random-button) .picker-bottom > .decision-progress,
+.picker-view:has(.picker-random-button) .picker-bottom > .text-button {
+  grid-row: 2;
+  margin-top: 0;
+}
+.picker-view:has(.picker-random-button) .picker-bottom > .picker-random-button {
+  grid-row: 3;
+}
+.picker-random-button:not([aria-disabled="true"]):hover,
+.picker-random-button:focus-visible {
+  color: #d9e7fc;
+  background: #3d80dc18;
+}
+.picker-random-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.picker-random-button[aria-disabled="true"] {
+  cursor: default;
+  opacity: 0.55;
+}
+.picker-view[data-shuffling="true"] .picker-arena {
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .picker-view[data-shuffling="true"] .card-position {
+    animation: picker-random-cut 680ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .picker-view[data-shuffling="true"] .back-one {
+    animation: picker-random-fan 680ms ease-in-out;
+  }
+  .picker-view[data-shuffling="true"] .back-two {
+    animation: picker-random-fan 680ms ease-in-out reverse;
+  }
+}
+@keyframes picker-random-cut {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-18px) rotate(-4deg);
+  }
+  56% {
+    transform: translateX(12px) rotate(3deg);
+  }
+  80% {
+    transform: translateX(-4px) rotate(-1deg);
+  }
+}
+@keyframes picker-random-fan {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  40% {
+    translate: 32px -5px;
+  }
+  70% {
+    translate: -16px 0;
+  }
+}
+:root[data-appearance="light"] .picker-random-button {
+  color: #526784;
+}
+:root[data-appearance="light"]
+  .picker-random-button:not([aria-disabled="true"]):hover,
+:root[data-appearance="light"] .picker-random-button:focus-visible {
+  color: #194e9b;
+  background: #2769c612;
+}
+@media (max-height: 780px) and (min-width: 801px) {
+  .picker-view:has(.picker-random-button) {
+    padding-block: 8px;
+  }
+  .picker-view:has(.picker-random-button) .picker-bottom {
+    margin-top: 12px;
+  }
+}
+@media (max-height: 680px) and (min-width: 801px) {
+  .picker-view:has(.picker-random-button) .picker-arena {
+    height: calc(100dvh - var(--app-header-height) - 214px);
+    min-height: 300px;
+  }
+  .picker-view:has(.picker-random-button) :is(.card-position, .deck-back) {
+    scale: clamp(
+      0.8,
+      calc((100dvh - var(--app-header-height) - 248px) / 380px),
+      1
+    );
+  }
+  .picker-view:has(.picker-random-button) .picker-appearance {
+    position: absolute;
+    bottom: 14px;
+    left: 20px;
+    margin-top: 0;
+  }
+}
+
+.picker-appearance {
+  position: absolute;
+  z-index: 12;
+  bottom: 22px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.picker-appearance-trigger {
+  anchor-name: --picker-appearance;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  justify-content: center;
+  width: 112px;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid #ffffff0e;
+  border-radius: 9px;
+  background: #14161999;
+  color: #a6b0bd;
+  font-size: 11px;
+  @apply motion-safe:transition-colors motion-safe:duration-200;
+}
+.picker-appearance-trigger:hover,
+.picker-appearance:has(:popover-open) .picker-appearance-trigger {
+  background: #25282c;
+  color: #e6e9ed;
+}
+.picker-appearance-panel {
+  position: fixed;
+  position-anchor: --picker-appearance;
+  inset: auto;
+  left: clamp(12px, anchor(left), calc(100vw - 324px));
+  bottom: calc(anchor(top) + 10px);
+  width: 312px;
+  max-width: calc(100vw - 24px);
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #ffffff14;
+  border-radius: 13px;
+  background: #1c1e22;
+  color: #a6b0bd;
+  box-shadow:
+    0 12px 40px #0006,
+    inset 0 1px #ffffff06;
+  font-size: 11px;
+}
+.picker-appearance-heading,
+.picker-appearance-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.picker-appearance-heading {
+  margin-bottom: 8px;
+  color: #e6e9ed;
+  font-size: 12px;
+  font-weight: 500;
+}
+.picker-appearance-heading .icon-button {
+  width: 26px;
+  height: 26px;
+}
+.picker-appearance-row + .picker-appearance-row {
+  margin-top: 8px;
+}
+.picker-appearance-row > div {
+  flex-shrink: 0;
+}
+.picker-appearance-panel .language-trigger {
+  background: #141619b3;
+  border: 1px solid #ffffff0d;
+}
+.picker-appearance-panel .language-menu {
+  top: auto;
+  bottom: calc(100% + 6px);
+  width: 124px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .picker-appearance-panel {
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease,
+      display 160ms allow-discrete,
+      overlay 160ms allow-discrete;
+  }
+  .picker-appearance-panel:popover-open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @starting-style {
+    .picker-appearance-panel:popover-open {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+}
+.picker-theme-switch,
+.picker-accent-switch,
+.picker-mode-switch {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #ffffff0d;
+  border-radius: 10px;
+  background: #141619b3;
+}
+.picker-accent-switch {
+  gap: 3px;
+}
+.accent-swatch {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  @apply motion-safe:transition-[background-color,border-color] motion-safe:duration-200;
+}
+.appearance-toggle {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: #a6b0bd;
+}
+.appearance-toggle:hover,
+.appearance-toggle[aria-pressed="true"] {
+  color: var(--accent-text);
+  background: #ffffff0a;
+}
+.accent-swatch:hover {
+  background: #ffffff08;
+}
+.accent-swatch[aria-pressed="true"] {
+  background: #ffffff0a;
+  border-color: #ffffff19;
+}
+.accent-swatch > span {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1b61c7;
+  color: #fff;
+  box-shadow: inset 0 0 0 1px #ffffff26;
+}
+.accent-swatch--orange > span {
+  background: #ff6a00;
+  color: #241006;
+}
+.picker-theme-switch button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 11px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #85898f;
+  background: transparent;
+  font-size: 11px;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+.picker-theme-switch button:hover {
+  color: #e6e9ed;
+  background: #ffffff06;
+}
+.picker-theme-switch button[aria-pressed="true"] {
+  color: #dee1e6;
+  background: #ffffff08;
+  border-color: #ffffff0e;
+}
+.picker-theme-switch button:focus-visible {
+  outline: 2px solid
+    hsl(
+      calc(var(--accent-hue) + var(--accent-hue-spread) * -0.098) 71.765%
+        66.667%
+    );
+  outline-offset: 2px;
+}
+.picker-tech {
+  background:
+    radial-gradient(ellipse at 50% 48%, #10244233, transparent 65%), #101214;
+}
+.picker-tech .picker-arena::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: min(880px, 160vw);
+  height: 660px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at 50% 52%,
+    #2878ed5c 0%,
+    #185cc934 32%,
+    #103b7914 58%,
+    transparent 76%
+  );
+  pointer-events: none;
+}
+.picker-tech::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      hsl(
+          calc(var(--accent-hue) + var(--accent-hue-spread) * 0.923) 40.625%
+            87.451% / 0.0275
+        )
+        1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      hsl(
+          calc(var(--accent-hue) + var(--accent-hue-spread) * 0.923) 40.625%
+            87.451% / 0.0275
+        )
+        1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 45%, #000 5%, transparent 70%);
+}
+.picker-tech .heading-star,
+.picker-tech .card-number-badge,
+.picker-tech .card-prism,
+.picker-tech .card-image::after {
+  display: none;
+}
+.picker-tech .picker-heading h1 {
+  font-weight: 450;
+  letter-spacing: -1px;
+}
+.picker-tech .game-card {
+  border: 1px solid #ffffff26;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      ellipse at 12% 0%,
+      color-mix(in srgb, var(--accent-soft), transparent 92%),
+      transparent 48%
+    ),
+    linear-gradient(150deg, #272a30, #191b20 40%, #17191e);
+  box-shadow:
+    0 30px 70px #0007,
+    inset 0 1px #ffffff12;
+}
+.picker-tech .game-card::before {
+  inset: 6px;
+  border: 1px solid #ffffff07;
+  border-radius: 12px;
+  background: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+.picker-tech .game-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 22px;
+  width: 62px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-soft), transparent);
+  opacity: 0.75;
+  pointer-events: none;
+}
+.picker-tech .game-card .card-topline {
+  top: 21px;
+  left: 22px;
+  height: 20px;
+}
+.picker-tech .card-sigil {
+  width: 18px;
+  height: 18px;
+  color: #b8c1cb;
+  border: 0;
+  background: none;
+  clip-path: none;
+}
+.picker-tech .card-type-label {
+  top: 24px;
+  left: 49px;
+  right: 22px;
+  bottom: auto;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  clip-path: none;
+  color: #a0a5af;
+  background: none;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.picker-tech .card-name {
+  top: 54px;
+  left: 22px;
+  right: 22px;
+  height: 62px;
+  padding: 0;
+  color: #f0f1f5;
+  font-size: 27px;
+  font-weight: 550;
+  line-height: 1.12;
+  letter-spacing: -0.9px;
+  text-align: left;
+  text-transform: none;
+  justify-content: flex-start;
+}
+.picker-tech .game-card .card-image {
+  inset: 130px 18px 73px;
+  margin: 0;
+  border: 1px solid #ffffff0e;
+  border-radius: 9px;
+  clip-path: none;
+  background: #12151a;
+}
+.picker-tech .game-card .card-copy,
+.picker-tech .game-card .card-copy:empty {
+  left: 22px;
+  right: 22px;
+  bottom: 15px;
+  height: 47px;
+  padding: 10px 0 0;
+  border-top: 1px solid #ffffff0b;
+  background: none;
+  border-radius: 0;
+}
+.picker-tech .game-card .card-copy p {
+  color: #a3aab5;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: none;
+  -webkit-line-clamp: 2;
+}
+.picker-tech .game-card .card-copy:empty {
+  display: none;
+}
+.picker-tech .game-card:has(.card-copy:empty) .card-image {
+  bottom: 20px;
+}
+.picker-tech .game-card .card-foil {
+  opacity: 0.025;
+}
+.picker-tech .game-card:hover .card-foil,
+.picker-tech .game-card[data-dragging="true"] .card-foil {
+  opacity: 0.08;
+}
+.picker-tech .deck-back {
+  border: 1px solid #ffffff14;
+  border-radius: 16px;
+  background: #1b1e24;
+  box-shadow: 0 12px 35px #0003;
+}
+.picker-tech .deck-back::before,
+.picker-tech .deck-back::after {
+  display: none;
+}
+.picker-tech .winner-card {
+  box-shadow:
+    0 24px 60px #0006,
+    0 0 40px #c5d8ee0b,
+    inset 0 1px #ffffff12;
+}
+.picker-tech .winner-badge {
+  color: #aeb6c2;
+}
+@media (max-width: 600px), (max-height: 620px) {
+  .picker-appearance-panel {
+    left: 12px;
+    right: 12px;
+    margin-inline: auto;
+  }
+  .picker-appearance {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 24px;
+    max-width: calc(100% - 24px);
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .picker-theme-switch button {
+    padding-inline: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .picker-theme-switch button {
+    transition: none;
+  }
+}

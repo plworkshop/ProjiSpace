@@ -1,0 +1,85 @@
+@reference "./styles.css";
+.image-markup-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 12px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--panel), var(--bg) 30%);
+  color: var(--muted);
+}
+.markup-tools, .markup-colors { display: flex; align-items: center; gap: 3px; }
+.markup-tool {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: inherit;
+}
+.markup-tool:not(:disabled):hover { background: color-mix(in srgb, var(--muted), transparent 88%); }
+.markup-tool[aria-pressed="true"] { color: var(--accent-text); background: color-mix(in srgb, var(--accent), transparent 82%); }
+.markup-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--swatch);
+  border: 1px solid #8190a566;
+}
+.markup-swatch[aria-pressed="true"] { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
+.markup-colors { gap: 7px; padding: 4px; }
+.markup-colors input[type="color"] { width: 28px; height: 28px; padding: 2px; cursor: pointer; border: 1px solid var(--line); border-radius: 5px; background: var(--panel); }
+.image-markup-toolbar .icon-button { width: 30px; height: 30px; min-width: 30px; }
+.image-markup-toolbar .markup-save { width: 176px; flex-shrink: 0; margin-inline-start: auto; }
+.markup-divider { width: 1px; height: 22px; background: var(--line); flex-shrink: 0; }
+.markup-menu { position: relative; }
+.markup-split { display: flex; gap: 1px; }
+.markup-tool.markup-caret { width: 17px; }
+.markup-tool.markup-menu-trigger { display: flex; align-items: center; justify-content: center; gap: 7px; width: auto; min-width: 32px; padding-inline: 7px; }
+.markup-tool.markup-caret { width: 17px; min-width: 17px; padding-inline: 0; }
+.markup-color-dot { width: 17px; height: 17px; border: 1px solid #8190a566; border-radius: 50%; }
+.markup-width-value { min-width: 31px; font-size: 11px; font-variant-numeric: tabular-nums; }
+.markup-popup {
+  position: absolute;
+  top: calc(100% + 9px);
+  left: 0;
+  z-index: 8;
+  width: 210px;
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: #d4d9e1;
+  box-shadow: 0 12px 32px #0005;
+}
+.markup-option { display: flex; align-items: center; gap: 9px; width: 100%; min-height: 34px; padding: 7px 9px; border-radius: 6px; text-align: start; font-size: 12px; }
+.markup-option + .markup-option { margin-top: 5px; }
+.markup-option span { flex: 1; }
+.markup-option:hover:not(:disabled), .markup-option[aria-checked="true"] { color: var(--accent-text); background: color-mix(in srgb, var(--accent), transparent 87%); }
+.markup-option.markup-clear { color: var(--danger-text); }
+.markup-option.markup-clear:hover:not(:disabled) { color: var(--danger-text); background: var(--danger-surface); }
+.markup-stroke-popup { width: 250px; padding: 13px; }
+.markup-setting-label { font-size: 11px; color: var(--muted); margin-bottom: 9px; }
+.markup-stroke-popup .markup-colors { gap: 8px; padding: 0; margin-bottom: 17px; }
+.markup-widths { display: flex; gap: 5px; }
+.markup-widths button { display: flex; flex: 1; min-width: 0; align-items: center; flex-direction: column; gap: 9px; justify-content: center; height: 48px; border-radius: 6px; font-size: 10px; }
+.markup-widths button > span { display: block; width: 24px; border-radius: 5px; background: currentColor; }
+.markup-widths button:hover, .markup-widths button[aria-pressed="true"] { color: var(--accent-text); background: color-mix(in srgb, var(--accent), transparent 85%); }
+:root[data-appearance="light"] .markup-popup { color: #35465c; box-shadow: 0 12px 32px #24334a24; }
+.image-viewport .image-markup-surface { position: absolute; top: 50%; left: 50%; }
+.image-viewport .image-markup-surface img { position: static; width: 100%; height: 100%; display: block; }
+.image-markup-layer { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; }
+.image-markup-layer[data-drawing="true"] { pointer-events: auto; cursor: crosshair; touch-action: none; }
+.image-markup-layer path { pointer-events: none; }
+.image-viewer:has(.image-markup-toolbar) .image-viewport { height: clamp(180px, calc(100dvh - 320px), 700px); }
+.image-markup-toolbar button { @apply motion-safe:transition-[color,background-color,opacity] motion-safe:duration-150; }
+@media (max-width: 800px) {
+  .image-markup-toolbar { gap: 7px; }
+  .image-viewer:has(.image-markup-toolbar) .image-viewport { height: clamp(180px, calc(100dvh - 400px), 700px); }
+}

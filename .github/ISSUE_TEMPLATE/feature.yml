@@ -1,0 +1,22 @@
+name: Feature suggestion / Предложение
+description: Describe a useful improvement / Предложить полезное улучшение
+title: "[Idea] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What task is difficult today? / Что сейчас трудно сделать?
+      description: Describe the user problem, without private project data / Опишите проблему без личных данных.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired result / Желаемый результат
+      description: What would successful behavior look like? / Как должно выглядеть успешное решение?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you tried / Что уже пробовали

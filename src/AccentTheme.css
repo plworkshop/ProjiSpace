@@ -1,0 +1,71 @@
+:root {
+  --primary-ink: #fff;
+  --accent-hue: 216;
+  --accent-hue-spread: 1;
+}
+:root[data-accent="orange"] {
+  --accent-hue: 25;
+  --accent-hue-spread: 0.2;
+  --accent: #ff6a00;
+  --accent-hover: #ff8a3d;
+  --accent-strong: #e85b00;
+  --accent-soft: #ffba7b;
+  --accent-text: #ffd7b5;
+  --ink: #241006;
+  --primary-ink: #241006;
+}
+:root[data-accent="orange"] .brand .brand-symbol {
+  color: #ff7900;
+  filter: drop-shadow(0 0 5px #ff6a0040);
+}
+:root[data-accent="orange"][data-appearance="light"] .brand .brand-symbol {
+  color: #df5000;
+  filter: none;
+}
+:root[data-accent="orange"] #portal-haze stop,
+:root[data-accent="orange"] #portal-spectrum stop,
+:root[data-accent="orange"] #portal-ray stop {
+  stop-color: #ff7900;
+}
+:root[data-accent="orange"] #portal-haze stop:nth-child(3) {
+  stop-opacity: 0.56;
+}
+:root[data-accent="orange"] #portal-spectrum stop:first-child {
+  stop-color: #ffb22e;
+}
+:root[data-accent="orange"] #portal-spectrum stop:nth-child(3),
+:root[data-accent="orange"] #portal-ray stop:nth-child(3) {
+  stop-color: #fff1cc;
+}
+:root[data-accent="orange"] #portal-spectrum stop:nth-child(4) {
+  stop-color: #ff5c00;
+}
+:root[data-accent="orange"] .portal-ring > circle:first-child {
+  opacity: 0.9;
+}
+:root[data-accent="orange"] .portal-ring > circle:nth-child(2) {
+  opacity: 0.85;
+}
+html[data-accent="orange"] .button.primary,
+html[data-accent="orange"] .open-winner.button.primary {
+  color: #241006;
+}
+html[data-accent="orange"] .warp-label {
+  text-shadow: none;
+}
+html[data-accent="orange"] .tree-row.active :is(.project-pin, .tree-add) {
+  color: #3a1800;
+}
+html[data-accent="orange"] .tree-row.active .project-pin:not(:disabled):hover {
+  color: #fff0dc;
+  background: #4a230acc;
+}
+html[data-accent="orange"] .tree-row.active .tree-folder {
+  color: #ffe1bf;
+}
+html[data-accent="orange"]
+  :is(.date-popup-grid, .date-popup-months)
+  button[aria-pressed="true"] {
+  background: var(--accent-strong);
+  color: #241006;
+}

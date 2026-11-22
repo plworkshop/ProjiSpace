@@ -1,0 +1,96 @@
+/* Keep spatial controls stable; mirror text and local interface groups. */
+html[dir="rtl"]
+  :is(
+    .app-header,
+    .workspace-grid,
+    .picker-arena,
+    .decision-controls,
+    .picker-theme-switch,
+    .language-trigger,
+    .language-menu,
+    .project-tree,
+    .pin-board,
+    .milestone-scroll,
+    .plan-days,
+    .plan-ruler,
+    .plan-calendar-heading > div,
+    .date-popup-heading,
+    .date-popup-months,
+    .date-popup-weekdays,
+    .date-popup-grid,
+    .rich-toolbar,
+    .image-viewport
+  ) {
+  direction: ltr;
+}
+html[dir="rtl"] :is(.projects-panel, .project-main, .references-panel) {
+  direction: rtl;
+}
+html[dir="rtl"]
+  :is(
+    .language-trigger > span[lang="he"],
+    .tree-section-label,
+    .project-search input,
+    .status-option,
+    .form-stack label,
+    .form-description > span,
+    .field-hint,
+    .modal-copy,
+    .date-popup-month
+  ) {
+  direction: rtl;
+  text-align: right;
+}
+html[dir="rtl"] .project-status-menu {
+  right: auto;
+  left: 0;
+}
+html[dir="rtl"]
+  :is(.creator-product, .creator-identity h2, .creator-website:not(.creator-donate) > span) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+html[dir="rtl"] :is(.description-text, .rich-document) {
+  text-align: start;
+}
+html[dir="rtl"] .rich-editor.is-empty .rich-document {
+  direction: rtl;
+}
+html[dir="rtl"]
+  :is(
+    .tree-project > span,
+    .pinned-project strong,
+    .game-card .card-copy p
+  )[dir="auto"] {
+  text-align: start;
+}
+html[dir="rtl"]
+  :is(.description-text, .rich-document)
+  :is(p, h1, h2, li, blockquote) {
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+html[dir="rtl"] .rich-document :is(ul, ol) {
+  padding-left: 0;
+  padding-inline-start: 24px;
+}
+html[dir="rtl"]
+  :is(.form-stack input, .plan-entry-form input, .plan-entry-form textarea) {
+  text-align: start;
+}
+html[dir="rtl"]
+  :is(
+    .form-stack input,
+    .plan-entry-form input,
+    .plan-entry-form textarea
+  )[dir="auto"]:placeholder-shown {
+  direction: rtl;
+  text-align: right;
+}
+html[dir="rtl"] .rich-link-form input {
+  direction: ltr;
+  text-align: left;
+}
+html[dir="rtl"] .picker-tech .card-name {
+  text-align: start;
+}

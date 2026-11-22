@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+  <title id="title">ProjiSpace</title>
+  <desc id="desc">A local workspace for projects, notes and plans. A blue project card is selected from a stack.</desc>
+  <rect width="1200" height="340" rx="24" fill="#111315"/>
+  <path d="M0 270h1200M780 0v340" stroke="#25292f"/>
+  <g fill="none" stroke="#32383f" stroke-width="1">
+    <circle cx="1054" cy="58" r="124"/>
+    <circle cx="1054" cy="58" r="184"/>
+    <path d="M36 36h20m-10-10v20M1144 294h20m-10-10v20"/>
+  </g>
+  <g transform="translate(64 72)" fill="none" stroke="#8bb8ff" stroke-width="3.5" stroke-linejoin="round">
+    <circle cx="26" cy="26" r="24"/>
+    <path d="m14 5 31 24M5 17l33 24M4 30l31-1M15 48l16-29M36 47 20 17M48 20 17 21"/>
+  </g>
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <text x="134" y="115" fill="#f4f6fa" font-size="52" font-weight="650" letter-spacing="-1.8">ProjiSpace</text>
+    <text x="64" y="174" fill="#b2bdcb" font-size="26" letter-spacing="-.4">Projects. Notes. Plans.</text>
+    <text x="64" y="303" fill="#8c99aa" font-size="14" letter-spacing="1.6">YOUR WORKSPACE, ON YOUR COMPUTER</text>
+    <g transform="translate(850 62)">
+      <rect x="32" y="-8" width="232" height="156" rx="14" fill="#181c22" stroke="#2c333e" transform="rotate(9 148 70)"/>
+      <rect x="13" y="12" width="232" height="156" rx="14" fill="#20262e" stroke="#3a4553" transform="rotate(-6 129 90)"/>
+      <rect x="0" y="30" width="232" height="156" rx="14" fill="#1c2e49" stroke="#669de8"/>
+      <path d="M22 58h21l6 6h32v26H22Z" fill="none" stroke="#99c2ff" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="22" y="110" width="137" height="6" rx="3" fill="#e0ecff"/>
+      <rect x="22" y="126" width="93" height="5" rx="2.5" fill="#6d8aad"/>
+      <circle cx="202" cy="159" r="10" fill="#8fb5ed"/>
+      <path d="m197 159 3 3 7-7" fill="none" stroke="#102238" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="852" y="303" fill="#b2bdcb" font-size="14">Choose one. Move it forward.</text>
+  </g>
+</svg>

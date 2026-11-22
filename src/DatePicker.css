@@ -1,0 +1,194 @@
+.project-date-picker {
+  flex: 0 1 142px;
+  min-width: 0;
+}
+.date-picker-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid #464d58;
+  border-radius: 6px;
+  background: #17191c;
+  color: hsl(var(--accent-hue) 30.612% 90.392%);
+  font-size: 11px;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+.date-picker-trigger > span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+.date-picker-trigger > svg {
+  flex-shrink: 0;
+  color: hsl(calc(var(--accent-hue) + var(--accent-hue-spread) * 0.183) 72.376% 64.510%);
+}
+.date-picker-trigger:hover,
+.date-picker-trigger[aria-expanded="true"] {
+  border-color: hsl(calc(var(--accent-hue) + var(--accent-hue-spread) * 0.154) 61.905% 50.588%);
+  background: #23272e;
+}
+.date-picker-trigger:focus-visible {
+  outline: 2px solid hsl(var(--accent-hue) 72.368% 70.196%);
+  outline-offset: 2px;
+}
+.date-picker-month {
+  flex: 1;
+  min-width: 0;
+}
+.date-picker-month .date-picker-trigger {
+  height: 24px;
+  width: auto;
+  max-width: 100%;
+  padding: 0 3px;
+  background: transparent;
+  border-color: transparent;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.date-picker-month .date-picker-trigger:hover {
+  background: #ffffff09;
+}
+.project-date-popup {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #ffffff15;
+  border-radius: 11px;
+  background: #242526;
+  color: #dadee3;
+  box-shadow:
+    0 14px 38px #0007,
+    inset 0 1px #ffffff04;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    display 160ms allow-discrete,
+    overlay 160ms allow-discrete;
+}
+.project-date-popup:popover-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+@starting-style {
+  .project-date-popup:popover-open {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+.date-popup-heading {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 7px;
+  height: 28px;
+}
+.date-popup-month {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  height: 28px;
+  padding: 0 5px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  border-radius: 6px;
+  text-align: left;
+}
+.date-popup-arrow {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  color: #b5bdc8;
+}
+.date-popup-weekdays,
+.date-popup-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 3px;
+}
+.date-popup-weekdays {
+  text-align: center;
+  font-size: 9px;
+  color: #a2a9b4;
+  margin-bottom: 5px;
+  height: 17px;
+  align-items: center;
+}
+.date-popup-grid button,
+.date-popup-months button {
+  height: 28px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 11px;
+  position: relative;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+.date-popup-grid .outside-month {
+  color: #82878f;
+}
+.date-popup-grid .is-today {
+  border-color: hsl(calc(var(--accent-hue) + var(--accent-hue-spread) * 0.17) 62.115% 55.490% / 0.4000);
+}
+.project-date-popup button:hover:not(:disabled) {
+  background: #41474f;
+  color: #fff;
+}
+.date-popup-grid button[aria-pressed="true"],
+.date-popup-months button[aria-pressed="true"] {
+  background: var(--accent-strong);
+  color: #fff;
+  border-color: hsl(calc(var(--accent-hue) + var(--accent-hue-spread) * 0.09) 57.576% 54.706%);
+}
+.project-date-popup button:focus-visible {
+  outline: 2px solid hsl(var(--accent-hue) 72.368% 70.196%);
+  outline-offset: -2px;
+}
+.date-popup-months {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+  height: 203px;
+  align-content: center;
+}
+.date-popup-months button {
+  height: 40px;
+  text-transform: capitalize;
+}
+.date-popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  border-top: 1px solid #ffffff0b;
+  padding-top: 7px;
+}
+.date-popup-footer button {
+  font-size: 10px;
+  padding: 5px 7px;
+  border-radius: 5px;
+  color: hsl(calc(var(--accent-hue) + var(--accent-hue-spread) * 0.106) 71.975% 69.216%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-date-popup,
+  .project-date-popup button,
+  .date-picker-trigger {
+    transition: none;
+  }
+}

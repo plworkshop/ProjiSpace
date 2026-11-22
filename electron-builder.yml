@@ -1,0 +1,54 @@
+appId: app.sidequest.desktop
+productName: ProjiSpace
+directories:
+  output: release
+files:
+  - dist/**
+  - server/app.mjs
+  - server/transcription.mjs
+  - server/assistant.mjs
+  - server/assistant-setup.mjs
+  - src/translations.mjs
+  - desktop/application.mjs
+  - desktop/main.mjs
+  - desktop/storage.mjs
+  - desktop/data.mjs
+  - desktop/permissions.mjs
+  - desktop/assistant-runtime.mjs
+  - desktop/assets/**
+  - LICENSE
+  - LICENSE.ru.md
+  - package.json
+  - "!node_modules/**/*"
+asar: true
+npmRebuild: false
+win:
+  extraResources:
+    - from: desktop/voice
+      to: voice
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: desktop/assets/icon.ico
+  artifactName: ProjiSpace-Setup-${version}-${arch}.${ext}
+mac:
+  target:
+    - target: dmg
+      arch: [x64, arm64]
+    - target: zip
+      arch: [x64, arm64]
+  category: public.app-category.productivity
+  icon: desktop/assets/icon.png
+  identity: null
+  notarize: false
+  artifactName: ProjiSpace-${version}-macOS-${arch}.${ext}
+nsis:
+  license: LICENSE
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  deleteAppDataOnUninstall: false
+  runAfterFinish: false
+  shortcutName: ProjiSpace
