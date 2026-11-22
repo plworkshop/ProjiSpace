@@ -4,7 +4,7 @@
 
 ## Install on Windows
 
-Close ProjiSpace and run the installer. Choose English or Russian, continue through the license and select **Only for me** or **Anyone who uses this computer**. On **Choose Install Location**, keep the suggested folder or click **Browse**. Installing for all users requires administrator permission.
+Open the downloaded ProjiSpace installer. Choose English or Russian, continue through the license and select **Only for me** or **Anyone who uses this computer**. On **Choose Install Location**, keep the suggested folder or click **Browse**. Installing for all users requires administrator permission.
 
 This folder contains the app. Choose the project data folder separately in ProjiSpace settings. Uninstalling keeps project data.
 
