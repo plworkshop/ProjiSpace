@@ -66,4 +66,4 @@ For local web development, use `npm run dev`. See [Build and development](docs/d
 
 [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
-**Version 1.0.0 is free for personal and internal business use.** The source is available for inspection and private builds under the [ProjiSpace license](LICENSE); it is not an open-source license. Future versions or additional features may have different terms. Bundled dependencies retain their own licenses. See [third-party notices](public/THIRD_PARTY_NOTICES.txt), the [Inter font license](public/fonts/OFL.txt), and [speech runtime notices](desktop/voice/NOTICE.txt).
+**ProjiSpace is free and open-source under [GNU GPL 3.0](LICENSE) (`GPL-3.0-only`).** You may use, modify and redistribute it under that license. Distributed builds must be accompanied by the corresponding source as required by GPL 3.0. See [copyright and licensing notices](NOTICE). Bundled dependencies retain their own licenses: [dependency notices](public/THIRD_PARTY_NOTICES.txt), [Inter font license](public/fonts/OFL.txt), and [speech runtime notices](desktop/voice/NOTICE.txt).

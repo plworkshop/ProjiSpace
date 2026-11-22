@@ -2,7 +2,7 @@
 
 [English](CONTRIBUTING.md) · [Русский](CONTRIBUTING.ru.md)
 
-Bug reports and focused suggestions are welcome. Check existing issues first and describe the problem you want to solve. This is a source-available project under the [ProjiSpace license](LICENSE), with possible proprietary features in future versions. Discuss a proposed code contribution before opening a pull request so its scope and licensing can be agreed. No additional contributor license agreement is established here.
+Bug reports and focused suggestions are welcome. Check existing issues first and describe the problem you want to solve. Code contributions are distributed under the project’s [GNU GPL 3.0 license](LICENSE). Discuss substantial changes before opening a pull request; contributors retain copyright in their work.
 
 ## Report a problem
 

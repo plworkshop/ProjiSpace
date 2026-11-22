@@ -1,0 +1,36 @@
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.brand-mark, .brand-wordmark {
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.brand-mark {
+  inline-size: 26px;
+  block-size: 26px;
+  aspect-ratio: 1;
+}
+.brand-wordmark {
+  inline-size: 110px;
+  block-size: auto;
+  aspect-ratio: 5;
+}
+.creator-product .brand-lockup {
+  gap: 8px;
+}
+.creator-product .brand-mark {
+  inline-size: 20px;
+  block-size: 20px;
+}
+.creator-product .brand-wordmark {
+  inline-size: 90px;
+}
+:root[data-appearance="light"] .brand-lockup {
+  filter: brightness(0);
+  opacity: 0.88;
+}

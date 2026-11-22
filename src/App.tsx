@@ -13,10 +13,11 @@ import Manager, { EmptyManager } from "./Manager";
 import Picker from "./Picker";
 import Assistant, { assistantLabel } from "./Assistant";
 import StorageSettings from "./StorageSettings";
+import Brand from "./Brand";
+import "./Brand.css";
 import type { Appearance, PickerTheme, Project, Workspace } from "./types";
 import type { Language } from "./translations.mjs";
 import {
-  Aperture,
   X,
   Globe2,
   Coffee,
@@ -143,8 +144,7 @@ export default function App() {
             popoverTarget="creator-card"
             aria-label={t("О ProjiSpace")}
           >
-            <Aperture className="brand-symbol" size={25} />
-            <span>ProjiSpace</span>
+            <Brand />
           </button>
         </div>
         <div className="header-actions">
@@ -205,7 +205,7 @@ export default function App() {
       >
         <div className="creator-card-heading">
           <span className="creator-product">
-            <Aperture size={18} /> ProjiSpace
+            <Brand />
           </span>
           <button
             type="button"

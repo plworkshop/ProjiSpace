@@ -5,6 +5,9 @@
 ## 1.0.0
 
 Initial public-source revision.
+- Updated application icon and proportional SVG branding.
+- Licensed the project under GPL-3.0-only.
+
 
 - Project card picker, random selection, search, pinning and subprojects.
 - Rich descriptions, four project statuses, images, links and image markup.

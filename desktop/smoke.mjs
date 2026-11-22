@@ -106,6 +106,14 @@ async function run() {
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
     assert.ok(ready, "The built application UI should become ready");
+    await waitFor("[...document.querySelectorAll('.brand-lockup img')].length === 4 && [...document.querySelectorAll('.brand-lockup img')].every(image => image.complete && image.naturalWidth > 0)");
+    const logo = await evaluate(`(() => {
+      const icon = document.querySelector('.brand .brand-mark').getBoundingClientRect();
+      const wordmark = document.querySelector('.brand .brand-wordmark').getBoundingClientRect();
+      return { iconRatio: icon.width / icon.height, wordmarkRatio: wordmark.width / wordmark.height };
+    })()`);
+    assert.ok(Math.abs(logo.iconRatio - 1) < 0.01);
+    assert.ok(Math.abs(logo.wordmarkRatio - 5) < 0.01);
     const framePolicy = await window.webContents.executeJavaScript(
       "fetch('/').then(response => response.headers.get('content-security-policy'))",
     );

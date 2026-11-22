@@ -13,3 +13,6 @@
 *.ico binary
 *.png binary
 *.ttf binary
+
+LICENSE text eol=lf
+NOTICE text eol=lf

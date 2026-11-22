@@ -2,7 +2,7 @@
   "name": "projispace-local",
   "version": "1.0.0",
   "private": true,
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "GPL-3.0-only",
   "type": "module",
   "main": "desktop/main.mjs",
   "description": "A local workspace for projects, plans and references.",
@@ -21,7 +21,8 @@
     "notices": "node scripts/third-party-notices.mjs",
     "notices:check": "node scripts/third-party-notices.mjs --check",
     "desktop:build:win": "npm run build && electron-builder --win --x64 --publish never",
-    "desktop:build:mac": "npm run build && electron-builder --mac --x64 --arm64 --publish never"
+    "desktop:build:mac": "npm run build && electron-builder --mac --x64 --arm64 --publish never",
+    "brand:build": "electron scripts/build-brand.mjs"
   },
   "dependencies": {
     "@tiptap/pm": "^3.32.0",

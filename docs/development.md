@@ -59,3 +59,7 @@ When dependencies change, run `npm run notices` and commit `public/THIRD_PARTY_N
 - **The assistant is unavailable:** start local Ollama, reopen Model settings and choose an installed supported model.
 - **Dictation is unavailable on macOS:** the bundled runtime is Windows-only.
 - **A local unsigned build cannot be produced:** verify signing-related environment settings and use the documented workflow on the target OS. Do not disable operating-system protection to make an unverified download run.
+
+## Brand assets
+
+The original interface SVGs are in `public/brand/icon.svg` and `public/brand/wordmark.svg`. The application icon uses `public/brand/app-icon.png`. Run `npm run brand:build` after replacing that PNG to regenerate the desktop PNG and multi-size Windows ICO. The conversion preserves the artwork’s proportions and transparency.
