@@ -2,6 +2,12 @@
 
 [English](usage.md) · [Русский](usage.ru.md) · [Overview](../README.md)
 
+## Install on Windows
+
+Close ProjiSpace and run the installer. Choose English or Russian, continue through the license and select **Only for me** or **Anyone who uses this computer**. On **Choose Install Location**, keep the suggested folder or click **Browse**. Installing for all users requires administrator permission.
+
+This folder contains the app. Choose the project data folder separately in ProjiSpace settings. Uninstalling keeps project data.
+
 ## Choose and organize
 
 Create a project, then open its workspace. Use search, pinning and manual ordering to keep the project list useful. A project can contain one level of subprojects.

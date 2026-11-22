@@ -31,7 +31,7 @@ win:
     - target: nsis
       arch: [x64]
   icon: desktop/assets/icon.ico
-  artifactName: ProjiSpace-Setup-${version}-${arch}.${ext}
+  artifactName: ProjiSpace-Installer-${version}-${arch}.${ext}
 mac:
   target:
     - target: dmg
@@ -45,6 +45,11 @@ mac:
   artifactName: ProjiSpace-${version}-macOS-${arch}.${ext}
 nsis:
   license: LICENSE
+  include: desktop/installer.nsh
+  installerIcon: desktop/assets/icon.ico
+  uninstallerIcon: desktop/assets/icon.ico
+  installerLanguages: [en_US, ru_RU]
+  displayLanguageSelector: true
   oneClick: false
   perMachine: false
   allowToChangeInstallationDirectory: true
