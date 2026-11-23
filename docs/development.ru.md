@@ -1,6 +1,6 @@
 # Сборка и разработка
 
-[English](development.md) · [Русский](development.ru.md) · [Обзор](../README.ru.md)
+[English](development.md) · [Русский](development.ru.md) · [Обзор](../README.md#user-content-readme-russian)
 
 ## Требования
 

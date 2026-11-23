@@ -1,14 +1,17 @@
 <p align="center">
-  <img src="docs/assets/cover.svg" alt="ProjiSpace — choose a project, make room for progress" width="100%">
+  <img src="docs/assets/cover.svg" alt="ProjiSpace" width="100%">
 </p>
 
-<p align="center">
+<details name="readme-language" lang="en" open>
+<summary><strong>English</strong></summary>
+
+<p id="readme-english" align="center">
   <strong>One place for your next project.</strong><br>
   Choose what to work on. Keep the notes, references and plan together.
 </p>
 
 <p align="center">
-  <strong>English</strong> · <a href="README.ru.md">Русский</a><br>
+  <strong>English</strong> · <a href="#user-content-readme-russian">Русский</a><br>
   Local storage · English / Русский
 </p>
 
@@ -74,3 +77,83 @@ For local web development, use `npm run dev`. See [Build and development](docs/d
 [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
 **ProjiSpace is free and open-source under [GNU GPL 3.0](LICENSE) (`GPL-3.0-only`).** You may use, modify and redistribute it under that license. Distributed builds must be accompanied by the corresponding source as required by GPL 3.0. See [copyright and licensing notices](NOTICE). Bundled dependencies retain their own licenses: [dependency notices](public/THIRD_PARTY_NOTICES.txt), [Inter font license](public/fonts/OFL.txt), and [speech runtime notices](desktop/voice/NOTICE.txt).
+
+</details>
+
+<details name="readme-language" lang="ru">
+<summary><strong>Русский</strong></summary>
+
+<p id="readme-russian" align="center">
+  <strong>Всё для следующего проекта — в одном месте.</strong><br>
+  Выберите, чем заняться. Соберите описание, референсы и план рядом.
+</p>
+
+<p align="center">
+  <a href="#user-content-readme-english">English</a> · <strong>Русский</strong><br>
+  Локальное хранение · English / Русский
+</p>
+
+## Скачать ProjiSpace
+
+[![Скачать для Mac с чипом Apple](https://img.shields.io/badge/%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-macOS_Apple_Silicon-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg)
+[![Скачать для Mac с процессором Intel](https://img.shields.io/badge/%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-macOS_Intel-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg)
+[![Скачать для Windows x64](https://img.shields.io/badge/%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-Windows_x64-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe)
+
+**Версия v1.1.0 для Mac** требует macOS 13 или новее. Откройте ** → Об этом Mac**, чтобы узнать, какой у вас чип — Apple или Intel. Для Windows доступна **v1.0.0**.
+
+![Рабочее пространство с описанием, референсами и планом](docs/assets/workspace.png)
+
+## Что умеет ProjiSpace
+
+| Выбрать | Организовать | Продвинуться |
+| --- | --- | --- |
+| Сравнивать карточки проектов или выбирать случайный. | Хранить описание, изображения и ссылки вместе. | Добавлять этапы, сроки и заметки по датам. |
+| Закреплять проекты и искать в коллекции. | Создавать подпроекты и менять статус работы. | Обращаться к локальному помощнику и проверять его предложения. |
+
+Есть светлая и тёмная темы, разметка изображений, панели с изменяемой шириной и интерфейс на русском и английском. Данные хранятся на компьютере, учётная запись не нужна. Расширение браузера в эту версию не входит.
+
+## Начало работы
+
+1. Установите ProjiSpace по ссылке выше, запустите приложение и создайте первый проект. Новое настольное хранилище изначально пустое.
+2. Добавьте описание, референсы и первый этап. Откройте карточки, когда понадобится выбрать, чем заняться дальше.
+
+| Платформа | Статус выпуска |
+| --- | --- |
+| Windows x64 | Установщик подготовлен и проверен в Windows. |
+| macOS Intel / Apple Silicon | Доступны образы DMG. Диктовка Whisper без интернета проверена на Apple Silicon. |
+
+Локальные сборки macOS подписываются ad hoc. Для обновления установите новую версию. Интернет нужен для необязательной загрузки компонентов и моделей и открытия внешних ссылок.
+
+<details>
+<summary><strong>Посмотреть выбор проекта</strong></summary>
+
+![Карточки в окне выбора проекта](docs/assets/picker.png)
+
+</details>
+
+## Ваши данные остаются у вас
+
+Проекты, планы и референсы находятся в локальной папке. Чтобы выбрать другое место, откройте рабочее пространство и нажмите **? → Локальное хранение → Изменить папку**. Перенос выполняется при следующем запуске. Прежняя папка остаётся резервной копией на момент переноса.
+
+**Перед резервным копированием закройте ProjiSpace и скопируйте всю папку хранения.** Удаление проекта также удаляет его подпроекты, планы и референсы. Корзины нет.
+
+[Использование и резервные копии](docs/usage.ru.md) · [Локальный ИИ и диктовка](docs/usage.ru.md#локальный-ии-и-диктовка) · [Конфиденциальность и безопасность](SECURITY.ru.md)
+
+## Запуск из исходников
+
+Установите **Node.js 24.14 или новее** и npm, затем выполните:
+
+```sh
+npm ci
+npm run desktop
+```
+
+Для локальной веб-разработки используйте `npm run dev`. Проверки, варианты сборки и ограничения платформ описаны в [инструкции для разработки](docs/development.ru.md).
+
+## О проекте
+
+[История изменений](CHANGELOG.ru.md) · [Участие в разработке](CONTRIBUTING.ru.md) · [Безопасность](SECURITY.ru.md)
+
+**ProjiSpace — бесплатное приложение с открытым кодом под [GNU GPL 3.0](LICENSE.ru.md) (`GPL-3.0-only`).** Программу можно использовать, изменять и распространять на условиях лицензии. При распространении сборок предоставляйте соответствующие исходники согласно GPL 3.0. См. [уведомление об авторских правах](NOTICE). Сторонние компоненты сохраняют свои лицензии: [уведомления о зависимостях](public/THIRD_PARTY_NOTICES.txt), [лицензия Inter](public/fonts/OFL.txt) и [уведомления о распознавании речи](desktop/voice/NOTICE.txt).
+
+</details>

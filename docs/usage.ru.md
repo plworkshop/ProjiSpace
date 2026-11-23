@@ -1,6 +1,6 @@
 # Использование ProjiSpace
 
-[English](usage.md) · [Русский](usage.ru.md) · [Обзор](../README.ru.md)
+[English](usage.md) · [Русский](usage.ru.md) · [Обзор](../README.md#user-content-readme-russian)
 
 ## Установка в Windows
 
