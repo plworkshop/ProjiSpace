@@ -40,6 +40,6 @@ Both features are optional. Normal project work does not require a model.
 
 The assistant receives bounded workspace context, including project text, plans, links and recent conversation. It prepares a proposal; inspect it and choose **Apply changes** only when it is correct. It has no project-deletion or shell tool.
 
-**Dictation:** the bundled speech runtime is available on Windows x64 only. Download the speech model when prompted, allow microphone access, record up to two minutes and review the recognized text before insertion. Model downloads require Internet access; transcription runs locally. Temporary recordings are removed after normal completion.
+**Dictation:** use the microphone button in the description editor or assistant. On Windows and macOS, download the 148 MB multilingual Whisper model once and allow microphone access. Whisper processes recordings of up to two minutes locally in the interface language. In the expanded description editor, the bottom button starts recording immediately once the model is ready. Press it again to stop and review the recognized text before insertion.
 
 For troubleshooting, see [Build and development](development.md). For data boundaries and security reporting, see [SECURITY.md](../SECURITY.md).

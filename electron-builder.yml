@@ -23,6 +23,7 @@ files:
   - "!node_modules/**/*"
 asar: true
 npmRebuild: false
+beforePack: scripts/build-mac-whisper.mjs
 win:
   extraResources:
     - from: desktop/voice
@@ -33,6 +34,16 @@ win:
   icon: desktop/assets/icon.ico
   artifactName: ProjiSpace-Installer-${version}-${arch}.${ext}
 mac:
+  extraResources:
+    - from: "artifacts/whisper-mac/${arch}/whisper-cli"
+      to: voice/whisper-cli
+    - from: desktop/voice
+      to: voice
+      filter:
+        - NOTICE.txt
+        - LICENSE-*.txt
+  extendInfo:
+    NSMicrophoneUsageDescription: ProjiSpace uses the microphone to record speech when you start dictation.
   target:
     - target: dmg
       arch: [x64, arm64]
@@ -40,7 +51,9 @@ mac:
       arch: [x64, arm64]
   category: public.app-category.productivity
   icon: desktop/assets/icon.png
-  identity: null
+  identity: "-"
+  entitlements: desktop/assets/entitlements.mac.plist
+  entitlementsInherit: desktop/assets/entitlements.mac.plist
   notarize: false
   artifactName: ProjiSpace-${version}-macOS-${arch}.${ext}
 nsis:

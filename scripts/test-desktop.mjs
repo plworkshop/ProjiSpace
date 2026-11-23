@@ -29,6 +29,7 @@ try {
     .run();
   sourceDb.close();
   const report = path.join(root, "qa", "desktop-smoke.json");
+  await mkdir(path.dirname(report), { recursive: true });
   const runDesktop = (output, extra = []) => new Promise((resolve, reject) => {
     const child = spawn(
       electron,

@@ -32,9 +32,9 @@ Light and dark themes, image markup, resizable panels, and an English/Russian in
 | Platform | Release status |
 | --- | --- |
 | Windows x64 | Installer prepared and checked on Windows. |
-| macOS Intel / Apple Silicon | Build workflow provided; binaries and runtime have not been verified on macOS. |
+| macOS Intel / Apple Silicon | Build workflow provided. Offline Whisper dictation was verified on Apple Silicon. |
 
-Local builds are unsigned. Automatic updates are not included; install a newer version to update the app. Internet access is needed for optional component/model downloads and any external links you open.
+Local macOS builds are signed ad hoc. To update the app, install a newer version. Internet access is needed for optional component/model downloads and any external links you open.
 
 <details>
 <summary><strong>See the project picker</strong></summary>

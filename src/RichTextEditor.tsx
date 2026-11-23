@@ -20,8 +20,7 @@ import {
   Minimize2,
 } from "lucide-react";
 import { editorContent, sanitizeDescription } from "./description";
-import VoiceDictation from "./VoiceDictation";
-import { Mic } from "lucide-react";
+import { EditorVoiceDictation } from "./VoiceDictation";
 
 export default function RichTextEditor({
   text,
@@ -44,7 +43,6 @@ export default function RichTextEditor({
   const [linkOpen, setLinkOpen] = useState(false);
   const [href, setHref] = useState("");
   const [linkError, setLinkError] = useState("");
-  const [dictationOpen, setDictationOpen] = useState(false);
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
@@ -233,18 +231,22 @@ export default function RichTextEditor({
             <tool.icon size={16} aria-hidden="true" />
           </button>
         ))}
-        <button
-          type="button"
-          className="rich-dictation"
-          aria-label={t("Голосовой ввод")}
-          title={t("Голосовой ввод")}
+        <EditorVoiceDictation
           disabled={disabled}
-          onMouseDown={(e) => e.preventDefault()}
-          onClick={() => setDictationOpen(true)}
-        >
-          <Mic size={16} aria-hidden="true" />
-          <span>{t("Голосовой ввод")}</span>
-        </button>
+          insert={(value) =>
+            editor
+              .chain()
+              .focus()
+              .insertContentAt(
+                editor.state.selection.to,
+                value.split(/\n+/).map((line) => ({
+                  type: "paragraph",
+                  content: [{ type: "text", text: line }],
+                })),
+              )
+              .run()
+          }
+        />
         <span className="rich-toolbar-divider" />
         <button
           type="button"
@@ -350,25 +352,6 @@ export default function RichTextEditor({
         </div>
       )}
       <EditorContent editor={editor} className="rich-editor-content" />
-      {dictationOpen && (
-        <VoiceDictation
-          close={() => setDictationOpen(false)}
-          insert={(value) => {
-            editor
-              .chain()
-              .focus()
-              .insertContentAt(
-                editor.state.selection.to,
-                value.split(/\n+/).map((line) => ({
-                  type: "paragraph",
-                  content: [{ type: "text", text: line }],
-                })),
-              )
-              .run();
-            setDictationOpen(false);
-          }}
-        />
-      )}
     </div>
   );
 }

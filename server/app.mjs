@@ -60,7 +60,7 @@ function validImage(buffer, mime) {
   return ['GIF87a', 'GIF89a'].includes(buffer.toString('ascii', 0, 6));
 }
 
-export async function createApp({ dataDir = path.join(ROOT, 'data'), seed = true, distDir = path.join(ROOT, 'dist'), accessToken = null, storage = null, assistantFetch = fetch, assistantRuntime = null, dictationExecutable = process.platform === 'win32' ? path.join(ROOT, 'desktop', 'voice', 'whisper-cli.exe') : null } = {}) {
+export async function createApp({ dataDir = path.join(ROOT, 'data'), seed = true, distDir = path.join(ROOT, 'dist'), accessToken = null, storage = null, assistantFetch = fetch, assistantRuntime = null, requestDictationMicrophone = null, dictationExecutable = process.platform === 'win32' ? path.join(ROOT, 'desktop', 'voice', 'whisper-cli.exe') : null } = {}) {
   dataDir = path.resolve(dataDir);
   const filesDir = path.join(dataDir, 'files');
   const transcriber = createTranscriber({directory: path.join(dataDir, 'voice'), executable: dictationExecutable});
@@ -353,7 +353,14 @@ export async function createApp({ dataDir = path.join(ROOT, 'data'), seed = true
       const assistantMatch = pathname.match(/^\/api\/assistant\/plans\/([a-f0-9-]+)$/);
       if (assistantMatch && method === 'POST') return send(res,200,assistant.apply(assistantMatch[1]));
       if (assistantMatch && method === 'DELETE') { assistant.discard(assistantMatch[1]); return send(res,204); }
-      if (method === 'GET' && pathname === '/api/dictation') return send(res, 200, await transcriber.status());
+      if (method === 'GET' && pathname === '/api/dictation') {
+        const status = await transcriber.status();
+        return send(res, 200, requestDictationMicrophone ? {...status, microphoneAuthorization: true} : status);
+      }
+      if (requestDictationMicrophone && pathname === '/api/dictation/prepare' && method === 'POST') {
+        if (!(await requestDictationMicrophone())) reject(403, 'Разрешите ProjiSpace доступ к микрофону в системных настройках macOS.');
+        return send(res, 204);
+      }
       if (pathname === '/api/dictation/model' && method === 'POST') {
         await transcriber.startDownload();
         return send(res, 202, await transcriber.status());

@@ -9,10 +9,10 @@ Use Node.js **24.14 or newer**, npm and Git. Install the locked dependencies wit
 | Target | Current status |
 | --- | --- |
 | Windows x64 | Local build and isolated Electron checks are available. |
-| macOS Intel / Apple Silicon | Configuration and a manual GitHub Actions workflow are provided. No macOS binary or runtime verification was completed on the Windows preparation host. |
+| macOS Intel / Apple Silicon | The manual GitHub Actions workflow builds both architectures. Offline Whisper dictation was verified on Apple Silicon. |
 | Linux | No release target is provided. |
 
-The macOS workflow must run on a macOS runner to produce DMG and ZIP files. A configuration file is not a tested macOS release. Signing and notarization require separately configured developer credentials and are not included in the current local preparation.
+Build DMG and ZIP files on macOS with Xcode Command Line Tools and CMake. Packaging downloads and verifies the pinned whisper.cpp source archive, compiles the CLI for the target architecture, and signs the app ad hoc. Developer ID signing and notarization require separate credentials.
 
 ## Commands
 
@@ -39,7 +39,7 @@ Do not run the development and built web servers together; they use the same API
 
 ## Platform features
 
-Core project, image, planning and local storage features share the same source. The optional AI assistant talks to local Ollama. Runtime installation/startup is implemented for Windows; macOS needs an already-running Ollama installation. Bundled voice dictation is Windows x64 only. These declarations do not replace native platform testing.
+Core project, image, planning and local storage features share the same source. The optional AI assistant talks to local Ollama. Runtime installation/startup is implemented for Windows; macOS needs an already-running Ollama installation. Dictation uses the same Whisper model on Windows x64 and in packaged macOS builds.
 
 ## Data and compatibility
 
@@ -57,7 +57,7 @@ When dependencies change, run `npm run notices` and commit `public/THIRD_PARTY_N
 
 - **A storage disk is unavailable:** reconnect it and restart. The app does not silently create a replacement workspace.
 - **The assistant is unavailable:** start local Ollama, reopen Model settings and choose an installed supported model.
-- **Dictation is unavailable on macOS:** the bundled runtime is Windows-only.
+- **Dictation is unavailable on macOS:** use a packaged build and check Microphone under System Settings → Privacy & Security.
 - **A local unsigned build cannot be produced:** verify signing-related environment settings and use the documented workflow on the target OS. Do not disable operating-system protection to make an unverified download run.
 
 ## Brand assets

@@ -10,7 +10,7 @@ ProjiSpace is a local, single-user application. Use the latest release. No secur
 - Development/web servers are local tools, not a hosted service. Do not expose their ports through public interfaces, tunnels or reverse proxies.
 - Project descriptions are sanitized before display. Image uploads have size/type limits and generated storage names.
 - Optional assistant requests go to local Ollama. Proposed project changes require review and explicit application; the assistant has no shell, arbitrary-file or project-deletion tool.
-- Optional speech recognition runs locally after its component/model download. Temporary audio is removed on normal completion; secure erasure after a crash is not guaranteed.
+- Whisper dictation on Windows and macOS runs locally after the model download. Temporary audio is removed when recognition finishes or is cancelled. A crash may leave temporary audio on disk.
 
 The workspace is not encrypted by ProjiSpace. Other software running as the same operating-system user can access it. Use operating-system account and disk protection for sensitive data. An independently installed Ollama runtime is part of the trusted local environment.
 

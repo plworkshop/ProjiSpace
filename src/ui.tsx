@@ -176,7 +176,7 @@ export function ProjectForm({
           if (
             descriptionExpanded &&
             event.key === "Escape" &&
-            !(event.target as HTMLElement).closest(".rich-link-form")
+            !(event.target as HTMLElement).closest(".rich-link-form, .voice-modal")
           ) {
             event.preventDefault();
             event.stopPropagation();

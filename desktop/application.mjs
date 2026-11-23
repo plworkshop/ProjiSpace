@@ -6,6 +6,7 @@ import {
   nativeTheme,
   session,
   shell,
+  systemPreferences,
 } from "electron";
 import { randomBytes } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
@@ -79,11 +80,16 @@ export async function launchDesktop({
     accessToken: token,
     storage,
     assistantRuntime: createAssistantRuntime({ directory: path.join(dataDirectory, "assistant-downloads") }),
+    requestDictationMicrophone: process.platform === "darwin" && app.isPackaged
+      ? () => systemPreferences.askForMediaAccess("microphone")
+      : null,
     dictationExecutable: process.platform === "win32" ? path.join(
       app.isPackaged ? process.resourcesPath : path.join(root, "desktop"),
       "voice",
       "whisper-cli.exe",
-    ) : null,
+    ) : process.platform === "darwin" && app.isPackaged
+      ? path.join(process.resourcesPath, "voice", "whisper-cli")
+      : null,
   });
   await new Promise((resolve, reject) => {
     service.server.once("error", reject);

@@ -1,6 +1,6 @@
 name: Build installers
 
-# Builds unsigned artifacts for review; it does not publish a release.
+# Builds review artifacts without publishing a release.
 on:
   workflow_dispatch:
 

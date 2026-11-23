@@ -81,22 +81,6 @@
   color: #aebed3;
   font-size: 12px;
 }
-.voice-language {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  font-size: 12px;
-  margin-bottom: 22px;
-}
-.voice-language select {
-  padding: 8px;
-  max-width: 230px;
-  color: inherit;
-  background: #252930;
-  border: 1px solid #40464f;
-  border-radius: 7px;
-}
 .voice-start {
   width: 100%;
 }
@@ -153,7 +137,7 @@
 :root[data-appearance="light"] .voice-progress {
   color: #536782;
 }
-:root[data-appearance="light"] :is(.voice-language select, .voice-preview) {
+:root[data-appearance="light"] .voice-preview {
   background: #f7f9fd;
   border-color: #c8d5e6;
   color: #21334d;

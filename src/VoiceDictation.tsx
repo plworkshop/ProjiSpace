@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import type { MouseEventHandler, RefObject } from "react";
+import { createPortal } from "react-dom";
 import {
   Download,
   Mic,
   Square,
   LoaderCircle,
   ArrowDownLeft,
+  X,
 } from "lucide-react";
 import { Modal } from "./ui";
 import { t, useLanguage } from "./i18n";
@@ -19,26 +22,98 @@ type Setup = {
   total: number;
   busy: boolean;
   error: string | null;
+  microphoneAuthorization?: boolean;
 };
+
+function EditorVoiceButton({
+  label,
+  icon: Icon = Mic,
+  buttonRef,
+  disabled,
+  onClick,
+}: {
+  label: string;
+  icon?: typeof Mic;
+  buttonRef?: RefObject<HTMLButtonElement | null>;
+  disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+}) {
+  return (
+    <button
+      ref={buttonRef}
+      type="button"
+      className="rich-dictation"
+      title={label}
+      aria-label={label}
+      disabled={disabled}
+      onMouseDown={(event) => event.preventDefault()}
+      onClick={onClick}
+    >
+      <Icon size={16} aria-hidden="true" />
+      <span>{label}</span>
+    </button>
+  );
+}
+
+export function EditorVoiceDictation({
+  disabled,
+  insert,
+}: {
+  disabled: boolean;
+  insert: (text: string) => void;
+}) {
+  const [session, setSession] = useState<"inline" | "modal" | null>(null);
+  const button = useRef<HTMLButtonElement>(null);
+  return session ? (
+    <VoiceDictation
+      startInline={session === "inline"}
+      editorButton={button}
+      close={() => {
+        setSession(null);
+        requestAnimationFrame(() => button.current?.focus({ preventScroll: true }));
+      }}
+      insert={(text) => {
+        setSession(null);
+        insert(text);
+      }}
+    />
+  ) : (
+    <EditorVoiceButton
+      label={t("Голосовой ввод")}
+      buttonRef={button}
+      disabled={disabled}
+      onClick={(event) => setSession(event.currentTarget.closest(
+        '.description-surface[data-expanded="true"], .project-form-modal--expanded',
+      ) ? "inline" : "modal")}
+    />
+  );
+}
+
 export default function VoiceDictation({
   close,
   insert,
   maxLength = 100000,
+  startInline = false,
+  editorButton,
 }: {
   close: () => void;
   insert: (text: string) => void;
   maxLength?: number;
+  startInline?: boolean;
+  editorButton?: RefObject<HTMLButtonElement | null>;
 }) {
   const interfaceLanguage = useLanguage();
   const [setup, setSetup] = useState<Setup | null>(null);
+  const [inline, setInline] = useState(startInline);
   const [phase, setPhase] = useState<
     "idle" | "requesting" | "recording" | "transcribing" | "preview"
   >("idle");
   const [text, setText] = useState("");
   const [seconds, setSeconds] = useState(0);
-  const [language, setLanguage] = useState("auto");
   const [error, setError] = useState("");
   const [level, setLevel] = useState(0);
+  const speechLanguage = interfaceLanguage === "ru" ? "ru" : "en";
+  const maxSeconds = 120;
   const stream = useRef<MediaStream | null>(null);
   const context = useRef<AudioContext | null>(null);
   const recorder = useRef<MediaRecorder | null>(null);
@@ -63,7 +138,7 @@ export default function VoiceDictation({
         });
         if (!response.ok) throw new Error();
         const status: Setup = await response.json();
-        if (alive.current) setSetup(status);
+        if (!controller.signal.aborted) setSetup(status);
       } catch {
         if (!controller.signal.aborted)
           setError(t("Не удалось загрузить голосовой ввод."));
@@ -117,7 +192,7 @@ export default function VoiceDictation({
       const audio = await recordingContext.decodeAudioData(
         await blob.arrayBuffer(),
       );
-      const samples = new Float32Array(Math.min(audio.length, 16000 * 120));
+      const samples = new Float32Array(Math.min(audio.length, 16000 * maxSeconds));
       for (let channel = 0; channel < audio.numberOfChannels; channel++) {
         const data = audio.getChannelData(channel);
         for (let i = 0; i < samples.length; i++)
@@ -126,7 +201,7 @@ export default function VoiceDictation({
       await recordingContext.close();
       if (controller.signal.aborted || !alive.current) return;
       const response = await fetch(
-        `/api/dictation/transcribe?language=${language}`,
+        `/api/dictation/transcribe?language=${speechLanguage}`,
         {
           method: "POST",
           headers: { "Content-Type": "audio/wav" },
@@ -157,7 +232,22 @@ export default function VoiceDictation({
     setError("");
     setPhase("requesting");
     setSeconds(0);
+    let message = t("Не удалось записать звук. Проверьте микрофон.");
     try {
+      if (setup.microphoneAuthorization) {
+        const controller = new AbortController();
+        request.current = controller;
+        const response = await fetch("/api/dictation/prepare", {
+          method: "POST",
+          signal: controller.signal,
+        });
+        if (!response.ok) {
+          const result = await response.json();
+          message = t(result.error);
+          throw new Error(message);
+        }
+        if (!alive.current) return;
+      }
       const input = await navigator.mediaDevices.getUserMedia({
         audio: {
           channelCount: 1,
@@ -214,7 +304,7 @@ export default function VoiceDictation({
       recordingTimer.current = setInterval(() => {
         if (!alive.current) return;
         const elapsed = Math.floor((performance.now() - started) / 1000);
-        setSeconds(Math.min(elapsed, 120));
+        setSeconds(Math.min(elapsed, maxSeconds));
         analyser.getByteTimeDomainData(data);
         setLevel(
           Math.min(
@@ -225,19 +315,53 @@ export default function VoiceDictation({
             ) * 5,
           ),
         );
-        if (elapsed >= 120) stopRecording();
+        if (elapsed >= maxSeconds) stopRecording();
       }, 100);
-    } catch {
+    } catch (cause) {
       stopRecording();
       void context.current?.close().catch(() => {});
       if (alive.current) {
         setPhase("idle");
-        setError(t("Не удалось записать звук. Проверьте микрофон."));
+        if (setup.microphoneAuthorization && cause instanceof DOMException && cause.name === "NotAllowedError")
+          message = t("Разрешите ProjiSpace доступ к микрофону в системных настройках macOS.");
+        setError(message);
       }
     }
   }
   const downloading = setup?.phase === "downloading";
-  return (
+  useEffect(() => {
+    if (!inline || phase !== "idle" || (!setup && !error)) return;
+    if (!error && setup?.ready && !setup.busy) {
+      void start();
+    } else {
+      setInline(false);
+    }
+  }, [inline, phase, setup, error, start]);
+
+  useEffect(() => {
+    if (inline && phase === "recording") {
+      editorButton?.current?.focus({ preventScroll: true });
+    }
+  }, [inline, phase, editorButton]);
+
+  const showInline = inline && phase !== "preview" && !(phase === "idle" && error);
+  if (showInline) {
+    const recording = phase === "recording";
+    const transcribing = phase === "transcribing";
+    return (
+      <EditorVoiceButton
+        buttonRef={editorButton}
+        icon={recording ? Square : transcribing ? X : LoaderCircle}
+        label={recording
+          ? t("Остановить запись")
+          : transcribing ? t("Отменить распознавание") : t("Подготовка записи…")}
+        disabled={!recording && !transcribing}
+        onClick={transcribing ? close : stopRecording}
+      />
+    );
+  }
+
+  const dialog = (
     <Modal title={t("Голосовой ввод")} close={close} className="voice-modal">
       {!setup ? (
         <div className="voice-status">
@@ -286,17 +410,6 @@ export default function VoiceDictation({
         <>
           {phase === "idle" && (
             <>
-              <label className="voice-language">
-                {t("Язык речи")}
-                <select
-                  value={language}
-                  onChange={(e) => setLanguage(e.target.value)}
-                >
-                  <option value="auto">{t("Определить автоматически")}</option>
-                  <option value="ru">Русский</option>
-                  <option value="en">English</option>
-                </select>
-              </label>
               <button
                 type="button"
                 className="button primary voice-start"
@@ -306,7 +419,7 @@ export default function VoiceDictation({
                 <Mic size={17} />
                 {t("Начать запись")}
               </button>
-              <p className="field-hint">{t("До 2 минут за одну запись.")}</p>
+              <p className="field-hint">{t("До 2 минут за одну запись.")} {t("Только на этом компьютере. Аудио не отправляется.")}</p>
             </>
           )}
           {phase === "requesting" && (
@@ -324,7 +437,7 @@ export default function VoiceDictation({
               </div>
               <span className="voice-time" role="timer">
                 {Math.floor(seconds / 60)}:
-                {String(seconds % 60).padStart(2, "0")} / 2:00
+                {String(seconds % 60).padStart(2, "0")} / {maxSeconds / 60}:00
               </span>
               <button
                 type="button"
@@ -414,4 +527,10 @@ export default function VoiceDictation({
       )}
     </Modal>
   );
+  return editorButton ? (
+    <>
+      <EditorVoiceButton buttonRef={editorButton} label={t("Голосовой ввод")} disabled />
+      {createPortal(dialog, document.body)}
+    </>
+  ) : dialog;
 }
