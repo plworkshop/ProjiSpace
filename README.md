@@ -2,8 +2,7 @@
   <img src="docs/assets/cover.svg" alt="ProjiSpace" width="100%">
 </p>
 
-<details name="readme-language" lang="en" open>
-<summary><strong>English</strong></summary>
+<div lang="en">
 
 <p id="readme-english" align="center">
   <strong>One place for your next project.</strong><br>
@@ -11,7 +10,8 @@
 </p>
 
 <p align="center">
-  <strong>English</strong> · <a href="#user-content-readme-russian">Русский</a><br>
+  <a href="#user-content-readme-english"><img src="https://img.shields.io/badge/English-1554C5?style=for-the-badge" alt="English"></a>
+  <a href="#user-content-readme-russian"><img src="https://img.shields.io/badge/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-293547?style=for-the-badge" alt="Русский"></a><br>
   Local storage · English / Русский
 </p>
 
@@ -78,10 +78,11 @@ For local web development, use `npm run dev`. See [Build and development](docs/d
 
 **ProjiSpace is free and open-source under [GNU GPL 3.0](LICENSE) (`GPL-3.0-only`).** You may use, modify and redistribute it under that license. Distributed builds must be accompanied by the corresponding source as required by GPL 3.0. See [copyright and licensing notices](NOTICE). Bundled dependencies retain their own licenses: [dependency notices](public/THIRD_PARTY_NOTICES.txt), [Inter font license](public/fonts/OFL.txt), and [speech runtime notices](desktop/voice/NOTICE.txt).
 
-</details>
+</div>
 
-<details name="readme-language" lang="ru">
-<summary><strong>Русский</strong></summary>
+---
+
+<div lang="ru">
 
 <p id="readme-russian" align="center">
   <strong>Всё для следующего проекта — в одном месте.</strong><br>
@@ -89,7 +90,8 @@ For local web development, use `npm run dev`. See [Build and development](docs/d
 </p>
 
 <p align="center">
-  <a href="#user-content-readme-english">English</a> · <strong>Русский</strong><br>
+  <a href="#user-content-readme-english"><img src="https://img.shields.io/badge/English-293547?style=for-the-badge" alt="English"></a>
+  <a href="#user-content-readme-russian"><img src="https://img.shields.io/badge/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-1554C5?style=for-the-badge" alt="Русский"></a><br>
   Локальное хранение · English / Русский
 </p>
 
@@ -156,4 +158,4 @@ npm run desktop
 
 **ProjiSpace — бесплатное приложение с открытым кодом под [GNU GPL 3.0](LICENSE.ru.md) (`GPL-3.0-only`).** Программу можно использовать, изменять и распространять на условиях лицензии. При распространении сборок предоставляйте соответствующие исходники согласно GPL 3.0. См. [уведомление об авторских правах](NOTICE). Сторонние компоненты сохраняют свои лицензии: [уведомления о зависимостях](public/THIRD_PARTY_NOTICES.txt), [лицензия Inter](public/fonts/OFL.txt) и [уведомления о распознавании речи](desktop/voice/NOTICE.txt).
 
-</details>
+</div>
