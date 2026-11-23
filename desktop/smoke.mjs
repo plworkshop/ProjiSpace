@@ -137,14 +137,25 @@ async function run() {
       assert.equal(await evaluate("document.querySelector('.project-state').textContent.trim()"), label);
       assert.equal(await evaluate("!!document.querySelector('.project-state .status-icon')"), true);
       const layout = await evaluate(`(() => {
+        const heading = document.querySelector('.project-heading').getBoundingClientRect();
+        const actions = document.querySelector('.project-heading-actions').getBoundingClientRect();
         const badge = document.querySelector('.project-state').getBoundingClientRect();
         const title = document.querySelector('.project-heading h1').getBoundingClientRect();
         const rounded = value => Math.round(value * 100) / 100;
-        return { width: rounded(badge.width), height: rounded(badge.height), left: rounded(badge.left), top: rounded(badge.top), titleLeft: rounded(title.left), rightAligned: Math.abs(document.querySelector('.project-heading-actions').getBoundingClientRect().right - document.querySelector('.project-heading').getBoundingClientRect().right) < 1 && badge.left >= title.right };
+        return {
+          width: rounded(badge.width),
+          height: rounded(badge.height),
+          left: rounded(badge.left),
+          top: rounded(badge.top),
+          titleLeft: rounded(title.left),
+          rightAligned: Math.abs(actions.right - heading.right) < 1,
+          clearOfTitle: actions.left >= title.right || actions.top >= title.bottom,
+        };
       })()`);
       assert.equal(layout.width, 148);
       assert.equal(layout.height, 30);
-      assert.equal(layout.rightAligned, true);
+      assert.ok(layout.rightAligned, 'The status controls must align with the right edge');
+      assert.ok(layout.clearOfTitle, 'The status controls must be beside or below the title');
       if (badgeLayout) assert.deepEqual(layout, badgeLayout, 'Changing status must not shift the badge or title');
       badgeLayout = layout;
       if (status === "completed") {
