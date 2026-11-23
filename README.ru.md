@@ -9,8 +9,16 @@
 
 <p align="center">
   <a href="README.md">English</a> · <strong>Русский</strong><br>
-  Версия 1.0.0 · Локальное хранение · English / Русский
+  Локальное хранение · English / Русский
 </p>
+
+## Скачать ProjiSpace
+
+[![Скачать для Mac с чипом Apple](https://img.shields.io/badge/%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-macOS_Apple_Silicon-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg)
+[![Скачать для Mac с процессором Intel](https://img.shields.io/badge/%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-macOS_Intel-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg)
+[![Скачать для Windows x64](https://img.shields.io/badge/%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-Windows_x64-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe)
+
+**Версия v1.1.0 для Mac** требует macOS 13 или новее. Откройте ** → Об этом Mac**, чтобы узнать, какой у вас чип — Apple или Intel. Для Windows доступна **v1.0.0**.
 
 ![Рабочее пространство с описанием, референсами и планом](docs/assets/workspace.png)
 
@@ -25,14 +33,13 @@
 
 ## Начало работы
 
-1. Откройте вкладку **Releases** этого репозитория и выберите доступную сборку для своего компьютера.
-2. Запустите ProjiSpace и создайте первый проект. Новое настольное хранилище изначально пустое.
-3. Добавьте описание, референсы и первый этап. Откройте карточки, когда понадобится выбрать, чем заняться дальше.
+1. Установите ProjiSpace по ссылке выше, запустите приложение и создайте первый проект. Новое настольное хранилище изначально пустое.
+2. Добавьте описание, референсы и первый этап. Откройте карточки, когда понадобится выбрать, чем заняться дальше.
 
 | Платформа | Статус выпуска |
 | --- | --- |
 | Windows x64 | Установщик подготовлен и проверен в Windows. |
-| macOS Intel / Apple Silicon | Есть процесс сборки. Диктовка Whisper без интернета проверена на Apple Silicon. |
+| macOS Intel / Apple Silicon | Доступны образы DMG. Диктовка Whisper без интернета проверена на Apple Silicon. |
 
 Локальные сборки macOS подписываются ad hoc. Для обновления установите новую версию. Интернет нужен для необязательной загрузки компонентов и моделей и открытия внешних ссылок.
 

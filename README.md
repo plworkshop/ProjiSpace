@@ -9,8 +9,16 @@
 
 <p align="center">
   <strong>English</strong> · <a href="README.ru.md">Русский</a><br>
-  Version 1.0.0 · Local storage · English / Русский
+  Local storage · English / Русский
 </p>
+
+## Download ProjiSpace
+
+[![Download for Mac with Apple Silicon](https://img.shields.io/badge/Download-macOS_Apple_Silicon-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg)
+[![Download for Mac with Intel](https://img.shields.io/badge/Download-macOS_Intel-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg)
+[![Download for Windows x64](https://img.shields.io/badge/Download-Windows_x64-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe)
+
+**Mac v1.1.0** requires macOS 13 or later. Open ** → About This Mac** to check whether your Mac has an Apple chip or an Intel processor. The Windows installer is **v1.0.0**.
 
 ![Project workspace with notes, references and a plan](docs/assets/workspace.png)
 
@@ -25,14 +33,13 @@ Light and dark themes, image markup, resizable panels, and an English/Russian in
 
 ## Get started
 
-1. Open this repository’s **Releases** tab and choose an available build for your computer.
-2. Start ProjiSpace and create your first project. A new desktop workspace starts empty.
-3. Add a description, references and a first milestone. Use the card picker when you need to choose what comes next.
+1. Install ProjiSpace using the download above, then start the app and create your first project. A new desktop workspace starts empty.
+2. Add a description, references and a first milestone. Use the card picker when you need to choose what comes next.
 
 | Platform | Release status |
 | --- | --- |
 | Windows x64 | Installer prepared and checked on Windows. |
-| macOS Intel / Apple Silicon | Build workflow provided. Offline Whisper dictation was verified on Apple Silicon. |
+| macOS Intel / Apple Silicon | DMGs available. Offline Whisper dictation was verified on Apple Silicon. |
 
 Local macOS builds are signed ad hoc. To update the app, install a newer version. Internet access is needed for optional component/model downloads and any external links you open.
 
