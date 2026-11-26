@@ -23,7 +23,9 @@
 
 **Mac v1.1.0** requires macOS 13 or later. Open ** → About This Mac** to check whether your Mac has an Apple chip or an Intel processor. The Windows installer is **v1.0.0**.
 
-![Project workspace with notes, references and a plan](docs/assets/workspace.png)
+[![Watch the ProjiSpace demo on YouTube](https://i.ytimg.com/vi/X0gObpqN1I8/maxresdefault.jpg)](https://youtu.be/X0gObpqN1I8)
+
+[▶ Watch the demo on YouTube](https://youtu.be/X0gObpqN1I8)
 
 ## What you can do
 
@@ -103,7 +105,9 @@ For local web development, use `npm run dev`. See [Build and development](docs/d
 
 **Версия v1.1.0 для Mac** требует macOS 13 или новее. Откройте ** → Об этом Mac**, чтобы узнать, какой у вас чип — Apple или Intel. Для Windows доступна **v1.0.0**.
 
-![Рабочее пространство с описанием, референсами и планом](docs/assets/workspace.png)
+[![Смотреть демонстрацию ProjiSpace на YouTube](https://i.ytimg.com/vi/X0gObpqN1I8/maxresdefault.jpg)](https://youtu.be/X0gObpqN1I8)
+
+[▶ Смотреть демонстрацию на YouTube](https://youtu.be/X0gObpqN1I8)
 
 ## Что умеет ProjiSpace
 
