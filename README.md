@@ -17,12 +17,14 @@
 
 ## Download ProjiSpace
 
-[![Download v1.1.0 for Mac with Apple Silicon](https://img.shields.io/badge/macOS_Apple_Silicon-v1.1.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg)
-[![Download v1.1.0 for Mac with Intel](https://img.shields.io/badge/macOS_Intel-v1.1.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg)
-[![Download v1.0.0 for Windows x64](https://img.shields.io/badge/Windows_x64-v1.0.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe)
-[![License GPL 3.0](https://img.shields.io/badge/license-GPL_3.0-4c7a00?style=flat)](LICENSE)
-[![Sponsor ProjiSpace on GitHub](https://img.shields.io/badge/Sponsor-bf3989?style=flat&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/plworkshop)
-[![Support ProjiSpace on Ko-fi](https://img.shields.io/badge/Ko--fi-ffdd00?style=flat&logo=kofi&logoColor=black)](https://ko-fi.com/pl_workshop)
+<p align="center">
+  <a href="https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg"><img src="https://img.shields.io/badge/macOS_Apple_Silicon-v1.1.0-00875e?style=flat" alt="Download v1.1.0 for Mac with Apple Silicon"></a>
+  <a href="https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg"><img src="https://img.shields.io/badge/macOS_Intel-v1.1.0-00875e?style=flat" alt="Download v1.1.0 for Mac with Intel"></a>
+  <a href="https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe"><img src="https://img.shields.io/badge/Windows_x64-v1.0.0-00875e?style=flat" alt="Download v1.0.0 for Windows x64"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL_3.0-4c7a00?style=flat" alt="License GPL 3.0"></a>
+  <a href="https://github.com/sponsors/plworkshop"><img src="https://img.shields.io/badge/Sponsor-bf3989?style=flat&amp;logo=githubsponsors&amp;logoColor=white" alt="Sponsor ProjiSpace on GitHub"></a>
+  <a href="https://ko-fi.com/pl_workshop"><img src="https://img.shields.io/badge/Ko--fi-ffdd00?style=flat&amp;logo=kofi&amp;logoColor=black" alt="Support ProjiSpace on Ko-fi"></a>
+</p>
 
 **Mac v1.1.0** requires macOS 13 or later. Open ** → About This Mac** to check whether your Mac has an Apple chip or an Intel processor. The Windows installer is **v1.0.0**.
 
@@ -100,12 +102,14 @@ For local web development, use `npm run dev`. See [Build and development](docs/d
 
 ## Скачать ProjiSpace
 
-[![Скачать v1.1.0 для Mac с чипом Apple](https://img.shields.io/badge/macOS_Apple_Silicon-v1.1.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg)
-[![Скачать v1.1.0 для Mac с процессором Intel](https://img.shields.io/badge/macOS_Intel-v1.1.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg)
-[![Скачать v1.0.0 для Windows x64](https://img.shields.io/badge/Windows_x64-v1.0.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe)
-[![Лицензия GPL 3.0](https://img.shields.io/badge/%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F-GPL_3.0-4c7a00?style=flat)](LICENSE.ru.md)
-[![Поддержать ProjiSpace на GitHub](https://img.shields.io/badge/Sponsor-bf3989?style=flat&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/plworkshop)
-[![Поддержать ProjiSpace на Ko-fi](https://img.shields.io/badge/Ko--fi-ffdd00?style=flat&logo=kofi&logoColor=black)](https://ko-fi.com/pl_workshop)
+<p align="center">
+  <a href="https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg"><img src="https://img.shields.io/badge/macOS_Apple_Silicon-v1.1.0-00875e?style=flat" alt="Скачать v1.1.0 для Mac с чипом Apple"></a>
+  <a href="https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg"><img src="https://img.shields.io/badge/macOS_Intel-v1.1.0-00875e?style=flat" alt="Скачать v1.1.0 для Mac с процессором Intel"></a>
+  <a href="https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe"><img src="https://img.shields.io/badge/Windows_x64-v1.0.0-00875e?style=flat" alt="Скачать v1.0.0 для Windows x64"></a>
+  <a href="LICENSE.ru.md"><img src="https://img.shields.io/badge/%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F-GPL_3.0-4c7a00?style=flat" alt="Лицензия GPL 3.0"></a>
+  <a href="https://github.com/sponsors/plworkshop"><img src="https://img.shields.io/badge/Sponsor-bf3989?style=flat&amp;logo=githubsponsors&amp;logoColor=white" alt="Поддержать ProjiSpace на GitHub"></a>
+  <a href="https://ko-fi.com/pl_workshop"><img src="https://img.shields.io/badge/Ko--fi-ffdd00?style=flat&amp;logo=kofi&amp;logoColor=black" alt="Поддержать ProjiSpace на Ko-fi"></a>
+</p>
 
 **Версия v1.1.0 для Mac** требует macOS 13 или новее. Откройте ** → Об этом Mac**, чтобы узнать, какой у вас чип — Apple или Intel. Для Windows доступна **v1.0.0**.
 
