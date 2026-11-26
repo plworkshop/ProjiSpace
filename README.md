@@ -17,9 +17,12 @@
 
 ## Download ProjiSpace
 
-[![Download for Mac with Apple Silicon](https://img.shields.io/badge/Download-macOS_Apple_Silicon-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg)
-[![Download for Mac with Intel](https://img.shields.io/badge/Download-macOS_Intel-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg)
-[![Download for Windows x64](https://img.shields.io/badge/Download-Windows_x64-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe)
+[![Download v1.1.0 for Mac with Apple Silicon](https://img.shields.io/badge/macOS_Apple_Silicon-v1.1.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg)
+[![Download v1.1.0 for Mac with Intel](https://img.shields.io/badge/macOS_Intel-v1.1.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg)
+[![Download v1.0.0 for Windows x64](https://img.shields.io/badge/Windows_x64-v1.0.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe)
+[![License GPL 3.0](https://img.shields.io/badge/license-GPL_3.0-4c7a00?style=flat)](LICENSE)
+[![Sponsor ProjiSpace on GitHub](https://img.shields.io/badge/Sponsor-bf3989?style=flat&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/plworkshop)
+[![Support ProjiSpace on Ko-fi](https://img.shields.io/badge/Ko--fi-ffdd00?style=flat&logo=kofi&logoColor=black)](https://ko-fi.com/pl_workshop)
 
 **Mac v1.1.0** requires macOS 13 or later. Open ** → About This Mac** to check whether your Mac has an Apple chip or an Intel processor. The Windows installer is **v1.0.0**.
 
@@ -97,9 +100,12 @@ For local web development, use `npm run dev`. See [Build and development](docs/d
 
 ## Скачать ProjiSpace
 
-[![Скачать для Mac с чипом Apple](https://img.shields.io/badge/%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-macOS_Apple_Silicon-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg)
-[![Скачать для Mac с процессором Intel](https://img.shields.io/badge/%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-macOS_Intel-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg)
-[![Скачать для Windows x64](https://img.shields.io/badge/%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-Windows_x64-1554C5?style=for-the-badge&labelColor=293547)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe)
+[![Скачать v1.1.0 для Mac с чипом Apple](https://img.shields.io/badge/macOS_Apple_Silicon-v1.1.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-arm64.dmg)
+[![Скачать v1.1.0 для Mac с процессором Intel](https://img.shields.io/badge/macOS_Intel-v1.1.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.1.0/ProjiSpace-1.1.0-macOS-x64.dmg)
+[![Скачать v1.0.0 для Windows x64](https://img.shields.io/badge/Windows_x64-v1.0.0-00875e?style=flat)](https://github.com/plworkshop/ProjiSpace/releases/download/v1.0.0/ProjiSpace-Installer-1.0.0-x64.exe)
+[![Лицензия GPL 3.0](https://img.shields.io/badge/%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F-GPL_3.0-4c7a00?style=flat)](LICENSE.ru.md)
+[![Поддержать ProjiSpace на GitHub](https://img.shields.io/badge/Sponsor-bf3989?style=flat&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/plworkshop)
+[![Поддержать ProjiSpace на Ko-fi](https://img.shields.io/badge/Ko--fi-ffdd00?style=flat&logo=kofi&logoColor=black)](https://ko-fi.com/pl_workshop)
 
 **Версия v1.1.0 для Mac** требует macOS 13 или новее. Откройте ** → Об этом Mac**, чтобы узнать, какой у вас чип — Apple или Intel. Для Windows доступна **v1.0.0**.
 
